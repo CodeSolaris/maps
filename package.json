@@ -1,0 +1,50 @@
+{
+	"name": "vite-ts-vanilla",
+	"homepage": "https://rolling-scopes-school.github.io/stellarbytehub-JSFE2025Q3/portfolio",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"prepare": "husky",
+		"predeploy": "bun run build",
+		"deploy": "gh-pages -d dist --dest portfolio",
+		"commit": "git-cz",
+		"stylelint:fix": "stylelint \"**/*.{css,scss}\" --fix",
+		"biome": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true",
+		"format:all": "bun run biome && bun run stylelint:fix"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.7",
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
+		"commitizen": "^4.3.1",
+		"cz-conventional-changelog": "^3.3.0",
+		"gh-pages": "^6.3.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
+		"postcss-preset-env": "^10.4.0",
+		"postcss-pxtorem": "^6.1.0",
+		"stylelint": "^16.26.0",
+		"stylelint-config-standard-scss": "^16.0.0",
+		"stylelint-order": "^7.0.0",
+		"stylelint-scss": "^6.12.1",
+		"typescript": "~5.9.3",
+		"vite": "^7.2.4"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"lint-staged": {
+		"*.{js,ts,jsx,tsx,json,jsonc}": [
+			"biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+		],
+		"*.{css,scss}": [
+			"stylelint --fix"
+		]
+	}
+}

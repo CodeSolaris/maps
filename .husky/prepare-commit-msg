@@ -1,0 +1,5 @@
+if bunx commitlint --edit "$1";
+then echo "Commit message passes commitlint check"
+else echo "Commit message does not pass commitlint check. Launching Commitizen..."
+exec < /dev/tty && bunx cz --hook || true
+fi
