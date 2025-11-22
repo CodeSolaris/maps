@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { COMPANY_CONFIG } from "../config/company.config";
 import type { ICompanyGenerator, ILocation } from "../types";
+import { generateLocation } from "../utils";
 
 export const companyGenerator: ICompanyGenerator = {
 	generateCompanyName(): string {
@@ -17,12 +18,9 @@ export const companyGenerator: ICompanyGenerator = {
 			return COMPANY_CONFIG.DEFAULT_CATCH_PHRASE;
 		}
 	},
-	generateLocation(): ILocation {
+	generateCompanyLocation(): ILocation {
 		try {
-			return {
-				lat: +(faker.location.latitude() || 0),
-				lng: +(faker.location.longitude() || 0),
-			};
+			return generateLocation();
 		} catch {
 			return COMPANY_CONFIG.DEFAULT_LOCATION;
 		}

@@ -3,25 +3,38 @@ export interface ILocation {
 	lng: number;
 }
 
-export interface ICompany {
-	companyName: string;
-	catchPhrase: string;
+export interface Mappable {
 	location: ILocation;
+	markerContent(): string;
+	color?: string;
 }
 
-export interface IUser {
+export interface ICompany extends Mappable {
 	name: string;
-	location: ILocation;
+	catchPhrase: string;
+}
+
+export interface IUser extends Mappable {
+	name: string;
 }
 
 export interface ICompanyGenerator {
 	generateCompanyName(): string;
 	generateCatchPhrase(): string;
-	generateLocation(): ILocation;
+	generateCompanyLocation(): ILocation;
+}
+export interface IUserGenerator {
+	generateUserName(): string;
+	generateUserLocation(): ILocation;
 }
 
 export interface ICompanyValidator {
 	validateCompanyName(companyName: string): void;
 	validateCatchPhrase(catchPhrase: string): void;
 	validateCompanyLocation(location: ILocation): void;
+}
+
+export interface IUserValidator {
+	validateUserName(userName: string): void;
+	validateUserLocation(location: ILocation): void;
 }

@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import type { ILocation } from "./types";
 
 export const validateLocation = (location: ILocation): boolean => {
@@ -29,4 +30,10 @@ export const validateCatchPhrase = (catchPhrase: string): void => {
 	if (!catchPhrase) {
 		throw new Error("Catch phrase cannot be empty");
 	}
+};
+export const generateLocation = (): ILocation => {
+	return {
+		lat: +(faker.location.latitude() || 0),
+		lng: +(faker.location.longitude() || 0),
+	};
 };

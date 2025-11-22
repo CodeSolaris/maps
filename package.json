@@ -21,6 +21,8 @@
 		"@commitlint/cli": "^20.1.0",
 		"@commitlint/config-conventional": "^20.0.0",
 		"@faker-js/faker": "^10.1.0",
+		"@googlemaps/js-api-loader": "^2.0.2",
+		"@types/google.maps": "^3.58.1",
 		"commitizen": "^4.3.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"gh-pages": "^6.3.0",
